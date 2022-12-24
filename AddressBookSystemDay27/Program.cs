@@ -33,6 +33,8 @@ namespace AddressBookSystemDay27
             builder.DisplayContact();
             builder.EditExistingContact();
             builder.DisplayContact();
+            builder.DeleteExistingContact();
+            builder.DisplayContact();
         }       
     }
 }
