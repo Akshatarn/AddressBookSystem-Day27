@@ -37,6 +37,7 @@ namespace AddressBookSystemDay27
         search:
             Console.WriteLine("\nEnter first name of the person for editing contact");
             String firstname = Console.ReadLine();
+            bool findContact = false;
             foreach (Contact contact in this.ContactsList)      //Iterating contacts iin list
             {
                 //Checking the existatnce of the person name in contact list
@@ -73,16 +74,21 @@ namespace AddressBookSystemDay27
                             goto ReCheck;
                     }
                     Console.WriteLine("Contact edited succesfully");
+                    findContact = true;
                 }
-                else
+            }
+            if (!findContact)
+            {
+                Console.WriteLine("*** Wrong Input ***: please enter a valid First name\n Enter Y/N");
+                if (Console.ReadKey().Key == ConsoleKey.Y)
                 {
-                    Console.WriteLine("*** Wrong Input ***: please enter a valid First name");
                     goto search;
                 }
             }
         }
         public void DeleteExistingContact()
         {
+            bool delete = false;
             Console.WriteLine("\nEnter first name of the person for deleting contact");
             String firstname = Console.ReadLine();
             foreach (Contact contact in this.ContactsList)      //Iterating contacts in list
@@ -91,14 +97,12 @@ namespace AddressBookSystemDay27
                 if (contact.FirstName == firstname)
                 {
                     this.ContactsList.Remove(contact);
-                    Console.WriteLine("Contact deleted succesfully");
+                    delete = true;
                     break;
                 }
-                else
-                {
-                    Console.WriteLine("*** Wrong Input ***: please enter a valid First name");
-                }
             }
+            if (!delete)
+                Console.WriteLine("*** Wrong Input ***: please enter a valid First name");
         }
     }
 }
