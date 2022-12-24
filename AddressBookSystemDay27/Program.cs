@@ -188,13 +188,16 @@ namespace AddressBookSystemDay27
 
         public static void DisplayPersonDictionary(Dictionary<string, List<string>> areaDictionary)
         {
+            int count = 0;
             foreach (var element in areaDictionary)
             {
                 foreach (string person in element.Value)
                 {
+                    count++;
                     Console.WriteLine("Paeron name : " + person + " Area :" + element.Key);
                 }
             }
+            Console.WriteLine("Count : " + count);
         }
     }
 }
