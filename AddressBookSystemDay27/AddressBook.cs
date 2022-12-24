@@ -29,11 +29,6 @@ namespace AddressBookSystemDay27
             }
         }
 
-        /// <summary>
-        /// Overriding the Equals method to find the duplicate contacts
-        /// </summary>
-        /// <param name="firstName"></param>
-        /// <returns></returns>
         private bool Equals(string firstName)
         {
             if (this.contactList.Any(e => e.firstName == firstName))
@@ -41,11 +36,6 @@ namespace AddressBookSystemDay27
             else
                 return false;
         }
-
-        /// <summary>
-        /// Editing the contacts by passing parameter as first name 
-        /// </summary>
-        /// <param name="firstName"></param>
         public void EditContact(string firstName)
         {
             int flag = 1;
@@ -90,11 +80,6 @@ namespace AddressBookSystemDay27
                 Console.WriteLine("Contact not found");
             }
         }
-
-        /// <summary>
-        /// Deleting the contact of the person
-        /// </summary>
-        /// <param name="firstName"></param>
         public void DeleteContact(string firstName)
         {
             int flag = 1;
@@ -113,10 +98,6 @@ namespace AddressBookSystemDay27
                 Console.WriteLine("Contact not found");
             }
         }
-
-        /// <summary>
-        /// Displaying the contacts
-        /// </summary>
         public void DisplayContact()
         {
             foreach (Contact contact in contactList)
@@ -131,12 +112,6 @@ namespace AddressBookSystemDay27
                 Console.WriteLine("email = " + contact.email);
             }
         }
-
-        /// <summary>
-        /// searching the list of persons in a perticular City and state
-        /// </summary>
-        /// <param name="place"> the city or the state </param>
-        /// <returns></returns>
         public List<string> FindPerson(string place)
         {
             List<string> personFound = new List<string>();
