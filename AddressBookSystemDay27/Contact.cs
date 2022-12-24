@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookSystemDay27
 {
-    internal class Contact
+    public class Contact
     {
         public String FirstName;
         public String LastName;
