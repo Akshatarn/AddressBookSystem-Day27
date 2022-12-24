@@ -53,7 +53,8 @@ namespace AddressBookSystemDay27
                     }
 
                     //Using switch case to add,edit,delete and display contacts
-                    Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n 5 View person by city or state\n 7 for exit");
+                    Console.WriteLine("\n 1 for Add Contact \n 2 for Edit Existing Contact \n 3 for delete the person,\n 4 for display,\n 5 View person by city or state" +
+                        "\n 6 Sort the entries Alphabetically\n 7 Sort by city\n 8 Sort by state\n9 Sortr by zip code \n 10 for exit");
                     int choise = Convert.ToInt32(Console.ReadLine());
                     switch (choise)
                     {
@@ -118,8 +119,17 @@ namespace AddressBookSystemDay27
                             //FindPersonByCityOrState(adressBookDictionary,cityDictionary);
                             break;
                         case 6:
+                            Console.WriteLine("Enter the address book name for sorting");
+                            string nameOfAddressBook = Console.ReadLine();
+                            adressBookDictionary[nameOfAddressBook].SortByFirstName();
                             break;
                         case 7:
+
+                            break;
+                        case 8:
+
+                            break;
+                        case 10:
                             Environment.Exit(0);
                             break;
                         default:
@@ -155,7 +165,14 @@ namespace AddressBookSystemDay27
             String phoneNumber = Console.ReadLine();
             Console.WriteLine("Enter email= ");
             String email = Console.ReadLine();
-            adressBookBuilder.AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+            if ((firstName != "") || (lastName != "") || (address != "") || (city != "") || (state != "") || (zip != "") || (email != "") || (phoneNumber != ""))
+            {
+                adressBookBuilder.AddContact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+            }
+            else
+            {
+                Console.WriteLine("Empty string not allowed \n for add contacts please give the input in string");
+            }
         }
 
         /// <summary>
